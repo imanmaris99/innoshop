@@ -8,40 +8,52 @@
   <div class="card-header">
     <h5 class="card-title mb-0">属性</h5>
   </div>
+  <div id="hide-attribute" class="card-body d-none">
+     <table id="attributeTable" class="table table-condensed table-bordered">
+       <tr class="set-attribute-title">
+         <td>属性</td>
+         <td>属性值</td>
+         <td></td>
+       </tr>
+       <tr id ="AddTr" class="set-attribute-title">
+         <td class="col-5"><input type="text" class="form-control" name="attribute[0][name]" placeholder="功能"></td>
+         <td class="col-5"><input type="text" class="form-control" name="attribute[0][value]" placeholder="保暖"></td>
+         <td id="delete-ROW-attribute" class="col-2 text-center align-middle "><a type="button" class="btn btn-lg"><i class="bi-treash">删除</i></a></td>
+       </tr>
+     </table>
+     <a id="delete-All-attribute" class="button btn-primary">删除</a>
+     <a id="add-attribute" class="button btn-primary">添加</a>
+  </div>
   <div>
    <div>
-     <button id="add-newattribute">添加属性</button>
-     <button id="delete-attribute" style="display: none;">删除属性</button>
+     <a id="new-attribute" class="button btn-primary">添加属性</a>
    </div>
   </div>
-  <div class="card-body" style="display: none;">
-      <table id="attributeTable" class="table table-condensed table-bordered">
-     <tr class="set-attribute-title">
-      <td>属性</td>
-      <td>属性值</td>
-      <td></td>
-     </tr>
-     <tr class="set-attribute-title">
-      <td class="col-5.5"><input type="text" class="form-control" name="attribute[0][name]" v-model="attribute.name" placeholder="功能"></td>
-      <td class="col-5.5"><input type="text" class="form-control" v-model="attribute.name" placeholder="保暖"></td>
-      <td class="col-1 text-center align-middle"><button type="button" class="btn btn-sm btn-primary" @click="addAttribute()">+</button></td>
-     </tr>
-      </table>
-  </div>
+  
 </div>
 
 @push('footer')
 <script>
-  document.getElementById('add-newattribute').addEventListener('click', function() {
-  var table = document.getElementById('attributeTable');
-  var delete-attribute = document.getElementById('delete-attribute');
-  table.style.display = 'table'; // 显示表格
-  delete-attribute.style.display = 'block'; // 显示删除按钮
+  $('#new-attribute').click(function() {
+    $('#hide-attribute').removeClass('d-none');
   });
-  document.getElementById('delete-attribute').addEventListener('click', function() {
-  var table = document.getElementById('attributeTable');
-  table.style.display = 'none'; // 隐藏表格
-  this.style.display = 'none'; // 隐藏删除按钮
+  $('#delete-attribute').click(function() {
+    alert('删除属性');
+    $('#hide-attribute').show('d-none');
+  });
+
+  $(document).ready(function() {
+    $('#add-attribute').click(function() {
+      let lineNo=1; 
+      markup = '<tr class="add-tr">\
+         <td class="col-5"><input type="text" class="form-control" name="attribute[0][name]" placeholder="功能"></td>\
+         <td class="col-5"><input type="text" class="form-control" name="attribute[0][value]" placeholder="保暖"></td>\
+         <td class="add-attribut col-2 text-center align-middle "><a type="button" class="btn btn-lg"><i class="bi-flie-plus"></i>删除</a></td>\
+       </tr>'; 
+      tableBody = $("table tbody"); 
+      tableBody.append(markup); 
+      lineNo++; 
+    });
   });
 </script>
 @endpush
