@@ -23,11 +23,13 @@ InnoShop - Innovative Open Source E-commerce System
 - Password: 123456
 
 ### Demo Frontend Screenshot
-<p align="center">
+![image](https://github.com/user-attachments/assets/a0c9033c-60af-4a92-b1fc-988b4e423fad)
+
+<!-- <p align="center">
     <a href="https://www.innoshop.cn"  target="_blank">
         <img src="https://www.innoshop.cn/images/readme/front.jpg?v"  alt="Front">
     </a>
-</p>
+</p> !-->
 
 ### Demo Backend Screenshot
 <p align="center">
